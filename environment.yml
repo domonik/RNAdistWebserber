@@ -1,0 +1,21 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python = 3.12
+  - viennarna >= 2.5
+  - biopython
+  - pandas
+  - networkx
+  - plotly
+  - dash >=2.5
+  - dash-bootstrap-components
+  - pybind11
+  - cython
+  - versioneer
+  - dash-bio
+  - gunicorn
+  - pyyaml
+  - pip:
+      - celery[redis]

@@ -1,0 +1,14 @@
+# Python version 3.12 is assumed
+biopython
+pandas
+networkx
+plotly
+dash>=2.5
+dash-bootstrap-components
+pybind11
+cython
+versioneer
+dash-bio
+gunicorn
+pyyaml
+celery[redis]
