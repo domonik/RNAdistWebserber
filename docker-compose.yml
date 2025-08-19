@@ -6,7 +6,7 @@ services:
       - "6379:6379"
 
   dash_app:
-    image: my-dash-app:latest   # use your prebuilt image
+    image: rnadist-webserver:latest   # use your prebuilt image
     ports:
       - "8050:8050"
     depends_on:
@@ -18,7 +18,7 @@ services:
     command: gunicorn -b 0.0.0.0:8050 app:server
 
   celery_worker:
-    image: my-dash-app:latest   # same image for worker
+    image: rnadist-webserver:latest   # same image for worker
     depends_on:
       - redis
     environment:
