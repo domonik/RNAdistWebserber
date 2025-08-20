@@ -1,9 +1,9 @@
 # Second image, extends your runtime
-FROM domonik95/rnadist:latest
+FROM domonik95/rnadist:nightly
 USER root
 # Install gunicorn and celery[redis] into the same conda env
-RUN micromamba run -n myenv pip install --no-cache-dir --prefix /opt/conda/envs/myenv gunicorn "celery[redis]"
-
+RUN micromamba install -y -n myenv -c conda-forge gunicorn psycopg2 && \
+    micromamba run -n myenv pip install --no-cache-dir "celery[redis]"
 WORKDIR /app
 COPY . .
 
