@@ -24,7 +24,7 @@ services:
       - redis
     environment:
       - REDIS_URL=redis://redis:6379/1
-    command: gunicorn -b 0.0.0.0:8050 app:server
+    command: gunicorn -b 0.0.0.0:8050 -w 2 app:server
 
   celery_worker:
     image: rnadist-webserver:latest   # same image for worker
@@ -32,7 +32,7 @@ services:
       - redis
     environment:
       - REDIS_URL=redis://redis:6379/1
-    command: celery -A app.celery worker --loglevel=info
+    command: celery -A app.celery worker --loglevel=info --concurrency=1
 
 
 volumes:
