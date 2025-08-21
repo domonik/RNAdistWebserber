@@ -17,6 +17,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   dash_app:
+    build: .
     image: rnadist-webserver:latest   # use your prebuilt image
     ports:
       - "8050:8050"
@@ -27,6 +28,7 @@ services:
     command: gunicorn -b 0.0.0.0:8050 -w 2 app:server
 
   celery_worker:
+    build: .
     image: rnadist-webserver:latest   # same image for worker
     depends_on:
       - redis

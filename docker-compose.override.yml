@@ -1,0 +1,10 @@
+x-build-defaults: &build_defaults
+  build:
+    context: .
+    pull: true   # <--- force pulling latest base
+
+services:
+  dash_app:
+    <<: *build_defaults
+  celery_worker:
+    <<: *build_defaults
